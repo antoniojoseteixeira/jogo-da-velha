@@ -18,6 +18,18 @@ Player turn = Player.cross;
 void main(List<String> arguments) {
   // Initializing board
   for (var status in board) {
-    print(status);
+    String result = convertToReadable(status);
+    print(result);
+  }
+}
+
+String convertToReadable(Status status) {
+  switch (status) {
+    case Status.none:
+      return "empty";
+    case Status.cross:
+      return "X";
+    case Status.circle:
+      return "O";
   }
 }
