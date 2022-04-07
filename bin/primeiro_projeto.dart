@@ -1,4 +1,5 @@
 enum Status { none, circle, cross }
+enum Player { circle, cross }
 
 Map<int, Status> board = {
   1: Status.none,
@@ -12,7 +13,10 @@ Map<int, Status> board = {
   9: Status.none,
 };
 
+Player turn = Player.cross;
+
 void main(List<String> arguments) {
+  // Initializing board
   board.forEach((key, value) => {
         print({key, value})
       });
