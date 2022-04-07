@@ -53,4 +53,12 @@ void getInput() {
 
   // Converting to int
   int? tileNumber = int.tryParse(tileInput.toString());
+
+  // Updating the board
+  if (tileNumber != null) {
+    Status updatedTile = turn == Player.cross ? Status.cross : Status.circle;
+    board[tileNumber] = updatedTile;
+  }
+
+  showBoard();
 }
