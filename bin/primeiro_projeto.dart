@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 enum Status { none, circle, cross }
@@ -60,5 +59,9 @@ void getInput() {
     board[tileNumber] = updatedTile;
   }
 
+  // Switching players
+  turn = turn == Player.cross ? Player.circle : Player.cross;
+
   showBoard();
+  getInput();
 }
