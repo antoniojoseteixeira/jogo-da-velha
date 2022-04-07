@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 enum Status { none, circle, cross }
 enum Player { circle, cross }
 
@@ -16,11 +19,11 @@ List<Status> board = [
 Player turn = Player.cross;
 
 void main(List<String> arguments) {
-  // Initializing board
   showBoard();
+  getInput();
 }
 
-String convertToReadable(int position) {
+String convertStatusToReadable(int position) {
   switch (board[position]) {
     case Status.none:
       return "$position";
@@ -33,11 +36,21 @@ String convertToReadable(int position) {
 
 void showBoard() {
   print(
-      '  ${convertToReadable(0)}  |  ${convertToReadable(1)}  |  ${convertToReadable(2)}  ');
+      '  ${convertStatusToReadable(0)}  |  ${convertStatusToReadable(1)}  |  ${convertStatusToReadable(2)}  ');
   print('-----|-----|-----');
   print(
-      '  ${convertToReadable(3)}  |  ${convertToReadable(4)}  |  ${convertToReadable(5)}  ');
+      '  ${convertStatusToReadable(3)}  |  ${convertStatusToReadable(4)}  |  ${convertStatusToReadable(5)}  ');
   print('-----|-----|-----');
   print(
-      '  ${convertToReadable(6)}  |  ${convertToReadable(7)}  |  ${convertToReadable(8)}  ');
+      '  ${convertStatusToReadable(6)}  |  ${convertStatusToReadable(7)}  |  ${convertStatusToReadable(8)}  ');
+}
+
+void getInput() {
+  print('Turno de ${turn == Player.cross ? "X" : "O"}');
+
+  // Getting user input
+  String? tileInput = stdin.readLineSync();
+
+  // Converting to int
+  int? tileNumber = int.tryParse(tileInput.toString());
 }
