@@ -21,6 +21,8 @@ void main(List<String> arguments) {
     String result = convertToReadable(status);
     print(result);
   }
+
+  showBoard();
 }
 
 String convertToReadable(Status status) {
@@ -32,4 +34,12 @@ String convertToReadable(Status status) {
     case Status.circle:
       return "O";
   }
+}
+
+void showBoard() {
+  print('  X  |  O  |  O  ');
+  print('-----|-----|-----');
+  print('  X  |  O  |  O  ');
+  print('-----|-----|-----');
+  print('  X  |  O  |  O  ');
 }
