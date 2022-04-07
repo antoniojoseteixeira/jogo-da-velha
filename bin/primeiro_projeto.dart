@@ -17,18 +17,13 @@ Player turn = Player.cross;
 
 void main(List<String> arguments) {
   // Initializing board
-  for (var status in board) {
-    String result = convertToReadable(status);
-    print(result);
-  }
-
   showBoard();
 }
 
-String convertToReadable(Status status) {
-  switch (status) {
+String convertToReadable(int position) {
+  switch (board[position]) {
     case Status.none:
-      return "empty";
+      return "$position";
     case Status.cross:
       return "X";
     case Status.circle:
@@ -37,9 +32,12 @@ String convertToReadable(Status status) {
 }
 
 void showBoard() {
-  print('  X  |  O  |  O  ');
+  print(
+      '  ${convertToReadable(0)}  |  ${convertToReadable(1)}  |  ${convertToReadable(2)}  ');
   print('-----|-----|-----');
-  print('  X  |  O  |  O  ');
+  print(
+      '  ${convertToReadable(3)}  |  ${convertToReadable(4)}  |  ${convertToReadable(5)}  ');
   print('-----|-----|-----');
-  print('  X  |  O  |  O  ');
+  print(
+      '  ${convertToReadable(6)}  |  ${convertToReadable(7)}  |  ${convertToReadable(8)}  ');
 }
