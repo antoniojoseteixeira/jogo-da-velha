@@ -1,8 +1,10 @@
 import 'dart:io';
 
+// Setting player and status
 enum Status { none, circle, cross }
 enum Player { circle, cross }
 
+// Game board
 List<Status> board = [
   Status.none,
   Status.none,
@@ -17,6 +19,7 @@ List<Status> board = [
 
 Player turn = Player.cross;
 
+// All the winning possibilities
 List<List<int>> winningMatches = [
   [7, 8, 9],
   [4, 5, 6],
@@ -68,6 +71,7 @@ String convertStatusToReadable(int position) {
   }
 }
 
+// Print the board
 void showBoard() {
   print(
       '  ${convertStatusToReadable(0)}  |  ${convertStatusToReadable(1)}  |  ${convertStatusToReadable(2)}  ');
