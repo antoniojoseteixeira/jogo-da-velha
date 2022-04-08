@@ -17,31 +17,20 @@ List<Status> board = [
 
 Player turn = Player.cross;
 
+List<List<int>> winningMatches = [
+  [7, 8, 9],
+  [4, 5, 6],
+  [1, 2, 3],
+  [7, 5, 3],
+  [9, 5, 1],
+  [7, 4, 1],
+  [8, 5, 2],
+  [9, 6, 3],
+];
+
 void main(List<String> arguments) {
   showBoard();
   getInput();
-}
-
-String convertStatusToReadable(int position) {
-  switch (board[position]) {
-    case Status.none:
-      return "$position";
-    case Status.cross:
-      return "X";
-    case Status.circle:
-      return "O";
-  }
-}
-
-void showBoard() {
-  print(
-      '  ${convertStatusToReadable(0)}  |  ${convertStatusToReadable(1)}  |  ${convertStatusToReadable(2)}  ');
-  print('-----|-----|-----');
-  print(
-      '  ${convertStatusToReadable(3)}  |  ${convertStatusToReadable(4)}  |  ${convertStatusToReadable(5)}  ');
-  print('-----|-----|-----');
-  print(
-      '  ${convertStatusToReadable(6)}  |  ${convertStatusToReadable(7)}  |  ${convertStatusToReadable(8)}  ');
 }
 
 void getInput() {
@@ -64,4 +53,28 @@ void getInput() {
 
   showBoard();
   getInput();
+}
+
+void checkIfGameIsOver() {}
+
+String convertStatusToReadable(int position) {
+  switch (board[position]) {
+    case Status.none:
+      return "$position";
+    case Status.cross:
+      return "X";
+    case Status.circle:
+      return "O";
+  }
+}
+
+void showBoard() {
+  print(
+      '  ${convertStatusToReadable(0)}  |  ${convertStatusToReadable(1)}  |  ${convertStatusToReadable(2)}  ');
+  print('-----|-----|-----');
+  print(
+      '  ${convertStatusToReadable(3)}  |  ${convertStatusToReadable(4)}  |  ${convertStatusToReadable(5)}  ');
+  print('-----|-----|-----');
+  print(
+      '  ${convertStatusToReadable(6)}  |  ${convertStatusToReadable(7)}  |  ${convertStatusToReadable(8)}  ');
 }
